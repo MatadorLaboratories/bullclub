@@ -17,7 +17,7 @@ export interface BullNft {
 }
 
 // Called server-side from the API route
-export async function fetchWalletBulls(walletAddress: string): Promise<BullNft[]> {
+export async function fetchWalletBulls(walletAddress: string, debug = false): Promise<BullNft[]> {
   const heliusKey = process.env.HELIUS_API_KEY;
 
   // Reject obvious placeholder values
@@ -56,6 +56,17 @@ export async function fetchWalletBulls(walletAddress: string): Promise<BullNft[]
   if (data.error) throw new Error(data.error.message ?? "RPC error");
 
   const items: any[] = data.result?.items ?? [];
+
+  // Debug mode: return a summary of all NFTs and their collection addresses
+  if (debug) {
+    const summary = items.map((item) => ({
+      name: item.content?.metadata?.name ?? "unknown",
+      mint: item.id,
+      collections: item.grouping?.filter((g: any) => g.group_key === "collection").map((g: any) => g.group_value) ?? [],
+    }));
+    // Return as an error so it surfaces in the API response
+    throw new Error("DEBUG: " + JSON.stringify(summary.slice(0, 20)));
+  }
 
   // Filter to Bull Club collection
   const bulls = items.filter((item) =>

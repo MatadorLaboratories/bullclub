@@ -25,8 +25,10 @@ export async function GET(request: NextRequest) {
     );
   }
 
+  const debug = request.nextUrl.searchParams.get("debug") === "1";
+
   try {
-    const nfts = await fetchWalletBulls(wallet);
+    const nfts = await fetchWalletBulls(wallet, debug);
     return NextResponse.json({ nfts, count: nfts.length }, { status: 200 });
   } catch (err: any) {
     console.error("[/api/nfts]", err?.message);
