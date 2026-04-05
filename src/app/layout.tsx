@@ -29,7 +29,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="bg-bc-bg text-white antialiased min-h-screen">
+      <body className="text-white antialiased min-h-screen">
         {/* Global background video — matches landing page style on all routes */}
         <video
           autoPlay
