@@ -18,7 +18,10 @@ export function LandingScreen() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ opacity: 0.55 }}
       >
-        <source src="/videos/bg.mp4" type="video/mp4" />
+        <source
+          src={process.env.NEXT_PUBLIC_BG_VIDEO_URL ?? "/videos/bg.mp4"}
+          type="video/mp4"
+        />
       </video>
 
       {/* Scan lines */}
