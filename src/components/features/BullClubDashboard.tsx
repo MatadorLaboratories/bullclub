@@ -18,7 +18,7 @@ export function BullClubDashboard() {
 
   return (
     <ScrollArea className="h-full">
-      <div className="p-4 flex flex-col gap-3 animate-fade-in">
+      <div className="p-5 flex flex-col gap-4 animate-fade-in">
 
         {/* Banner carousel */}
         <DashboardBanner />
@@ -87,7 +87,7 @@ export function BullClubDashboard() {
         </section>
 
         {/* ── RAFFLES & AIRDROPS ── */}
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-2 gap-4">
 
           {/* Raffles */}
           <div>

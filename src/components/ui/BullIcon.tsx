@@ -1,0 +1,59 @@
+/**
+ * BullIcon — the pink bull mascot icon used throughout Bull Club 2.0.
+ * Exact SVG paths from the Figma design.
+ */
+
+interface BullIconProps {
+  /** Height in pixels (width scales proportionally). Default: 12 */
+  size?: number;
+  /** Fill color. Default: #FF006C */
+  color?: string;
+  className?: string;
+}
+
+export function BullIcon({ size = 12, color = "#FF006C", className }: BullIconProps) {
+  // viewBox: 0 0 21 12 → aspect ratio 21:12
+  const width = (21 / 12) * size;
+  return (
+    <svg
+      width={width}
+      height={size}
+      viewBox="0 0 21 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M17.7384 1.26961C17.3972 1.82809 16.9142 2.23068 16.1622 2.17532C16.7274 2.52983 17.2142 2.42591 17.2142 2.42591C15.3103 3.27431 12.9108 -0.423302 10.1707 1.90094C7.43057 -0.423788 5.03111 3.27431 3.12712 2.42591C3.12712 2.42591 3.61399 2.52983 4.17922 2.17532C3.42718 2.23068 2.94366 1.82809 2.60299 1.26961C1.57909 -0.407762 0 -0.0143993 0 0.196365C0 0.528538 1.27426 0.305633 1.93313 2.55654C2.20452 3.48361 2.6737 4.23295 3.63884 4.35193C4.80799 4.49616 5.61975 4.3665 6.30681 4.45488C6.06648 5.06192 5.7134 5.49171 5.7134 5.49171C6.32162 5.50288 7.32307 4.97257 7.32307 4.97257C7.32307 4.97257 8.68333 5.22558 9.00106 7.17054C9.00106 7.17054 8.80851 6.72376 8.40335 6.3066C8.10282 5.99677 7.9074 6.42024 7.55957 6.27018C7.16635 6.10069 7.19454 5.43052 7.19454 5.43052C6.16921 6.51639 8.75978 8.26322 8.6088 9.48555C8.77555 9.25342 9.02734 8.29915 8.82332 7.82323C8.82332 7.82323 9.42008 8.75031 8.70531 9.89349C8.15681 10.771 10.1712 11.043 10.1712 11.043C10.1712 11.043 12.1855 10.771 11.637 9.89349C10.9222 8.74982 11.519 7.82323 11.519 7.82323C11.3155 8.29915 11.5673 9.25342 11.7335 9.48555C11.5826 8.26322 14.1731 6.51639 13.1478 5.43052C13.1478 5.43052 13.176 6.10069 12.7828 6.27018C12.4354 6.41975 12.24 5.99677 11.939 6.3066C11.5343 6.72376 11.3413 7.17054 11.3413 7.17054C11.6595 5.22558 13.0193 4.97257 13.0193 4.97257C13.0193 4.97257 14.0207 5.50288 14.6289 5.49171C14.6289 5.49171 14.2758 5.06192 14.0355 4.45488C14.7226 4.3665 15.5343 4.49567 16.7035 4.35193C17.6681 4.23295 18.1378 3.48361 18.4092 2.55654C19.0676 0.305633 20.3423 0.528538 20.3423 0.196365C20.3423 -0.0143993 18.7632 -0.407762 17.7393 1.26961H17.7384Z"
+        fill={color}
+      />
+    </svg>
+  );
+}
+
+/**
+ * BullPointsTitle — the full "🐂 BULL POINTS" label using the exact Figma SVG asset.
+ * Uses the downloaded SVG file from public/bull-points-title.svg.
+ */
+interface BullPointsTitleProps {
+  /** Height in pixels. Width scales proportionally. Default: 12 */
+  height?: number;
+  className?: string;
+}
+
+export function BullPointsTitle({ height = 12, className }: BullPointsTitleProps) {
+  // viewBox: 0 0 115.069 11.043 → aspect ratio ~10.42:1
+  const width = (115.069 / 11.043) * height;
+  return (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      src="/bull-points-title.svg"
+      alt="Bull Points"
+      width={width}
+      height={height}
+      className={className}
+      style={{ display: "block" }}
+    />
+  );
+}

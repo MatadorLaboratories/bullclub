@@ -2,6 +2,7 @@ import Link from "next/link";
 import { MOCK_LEADERBOARD } from "@/lib/constants";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
+import { BullIcon } from "@/components/ui/BullIcon";
 
 const STATS = {
   bullsOwned: 12,
@@ -102,10 +103,3 @@ function StatItem({ label, value, valueColor = "text-white" }: { label: string; 
   );
 }
 
-function BullIcon() {
-  return (
-    <svg width="16" height="14" viewBox="0 0 16 14" fill="#e8185a">
-      <path d="M1.5 5.5 C0 3.5, 0 1, 1.5 1.5 L3 4.5 C3.5 2, 5 0.5, 6.5 1.5 L6 5 C7 3.5, 9 3.5, 10 5 L9.5 1.5 C11 0.5, 12.5 2, 13 4.5 L14.5 1.5 C16 1, 16 3.5, 14.5 5.5 L14 6.5 C15 7.5, 15 9.5, 14 10.5 L13.5 12.5 C12.5 14, 3.5 14, 2.5 12.5 L2 10.5 C1 9.5, 1 7.5, 2 6.5 Z" />
-    </svg>
-  );
-}

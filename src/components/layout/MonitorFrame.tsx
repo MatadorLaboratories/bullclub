@@ -16,8 +16,8 @@ export function MonitorFrame({ children, className }: MonitorFrameProps) {
         )}
         style={{
           height: "628px",
-          backdropFilter: "blur(25px)",
-          WebkitBackdropFilter: "blur(25px)",
+          backdropFilter: "blur(50px)",
+          WebkitBackdropFilter: "blur(50px)",
           background: "rgba(0, 0, 0, 0.8)",
         }}
       >
