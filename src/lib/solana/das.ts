@@ -1,6 +1,5 @@
-// Bull Club collection address (base58)
-// Derived from hex: 8b5d295ba093760e4205352e954b635e9371f3fb09d76114a7c409284214cc75
-export const BULL_COLLECTION_ADDRESS = "AP24dPG4avaGzopWSnPx56ib8B2wYWFFw6FR5FTzBWRJ";
+export const BULL_COLLECTION_ADDRESS = "GExZS89EX4h3tas9h8zjxznMsEMSRvq7W4jCk5wkWoQe";
+export const TESSERACT_COLLECTION_ADDRESS = "H5kictfHdRKMKRAKvhM5APZkiCm2U56QUSLaob5EM9cm";
 
 export interface BullNft {
   tokenId: string;
@@ -17,7 +16,7 @@ export interface BullNft {
 }
 
 // Called server-side from the API route
-export async function fetchWalletBulls(walletAddress: string, debug = false): Promise<BullNft[]> {
+export async function fetchWalletBulls(walletAddress: string): Promise<BullNft[]> {
   const heliusKey = process.env.HELIUS_API_KEY;
 
   // Reject obvious placeholder values
@@ -57,21 +56,13 @@ export async function fetchWalletBulls(walletAddress: string, debug = false): Pr
 
   const items: any[] = data.result?.items ?? [];
 
-  // Debug mode: return a summary of all NFTs and their collection addresses
-  if (debug) {
-    const summary = items.map((item) => ({
-      name: item.content?.metadata?.name ?? "unknown",
-      mint: item.id,
-      collections: item.grouping?.filter((g: any) => g.group_key === "collection").map((g: any) => g.group_value) ?? [],
-    }));
-    // Return as an error so it surfaces in the API response
-    throw new Error("DEBUG: " + JSON.stringify(summary.slice(0, 20)));
-  }
-
-  // Filter to Bull Club collection
+  // Filter to Bull Club + Tesseract collections
   const bulls = items.filter((item) =>
     item.grouping?.some(
-      (g: any) => g.group_key === "collection" && g.group_value === BULL_COLLECTION_ADDRESS
+      (g: any) =>
+        g.group_key === "collection" &&
+        (g.group_value === BULL_COLLECTION_ADDRESS ||
+          g.group_value === TESSERACT_COLLECTION_ADDRESS)
     )
   );
 
