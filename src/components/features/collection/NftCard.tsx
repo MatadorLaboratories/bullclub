@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { NFT_PALETTES } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -38,8 +37,8 @@ export function NftCard({
     lg: "w-full aspect-[3/4]",
   };
 
-  // Use local image if available, otherwise fall back to gradient art
-  const localImageUrl = imageUrl ?? (!isTesseract ? `/images/bulls/${tokenId}.jpg` : null);
+  // Use provided image URL, fallback to local copy
+  const imgSrc = imageUrl || (!isTesseract ? `/images/bulls/${tokenId}.jpg` : null);
 
   const card = (
     <div
@@ -50,53 +49,41 @@ export function NftCard({
       )}
       onClick={onClick}
     >
-      {localImageUrl ? (
-        /* Real NFT image */
-        <Image
-          src={localImageUrl}
+      {/* Gradient background — always present as base */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: isTesseract
+            ? "linear-gradient(145deg, #0d1b4b, #1a237e, #0d47a1)"
+            : `linear-gradient(145deg, ${palette.from}, ${palette.to})`,
+        }}
+      />
+
+      {/* NFT image — plain img tag to avoid next/image domain restrictions */}
+      {imgSrc && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img
+          src={imgSrc}
           alt={`Bull #${tokenId}`}
-          fill
-          className="object-cover"
-          sizes="(max-width: 768px) 50vw, 20vw"
+          className="absolute inset-0 w-full h-full object-cover"
           onError={(e) => {
-            // On error, hide image and show fallback gradient
             (e.target as HTMLImageElement).style.display = "none";
           }}
         />
-      ) : (
-        /* Gradient fallback */
-        <div
-          className="absolute inset-0"
-          style={{
-            background: isTesseract
-              ? "linear-gradient(145deg, #0d1b4b, #1a237e, #0d47a1)"
-              : `linear-gradient(145deg, ${palette.from}, ${palette.to})`,
-          }}
-        />
       )}
 
-      {/* Gradient fallback always present underneath */}
-      {localImageUrl && (
-        <div
-          className="absolute inset-0 -z-10"
-          style={{
-            background: `linear-gradient(145deg, ${palette.from}, ${palette.to})`,
-          }}
-        />
-      )}
-
-      {/* Tesseract art (no real image) */}
+      {/* Tesseract art */}
       {isTesseract && (
-        <div className="absolute inset-0 flex items-center justify-center">
+        <div className="absolute inset-0 flex items-center justify-center z-10">
           <TesseractArt />
         </div>
       )}
 
       {/* Shine layer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/40 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/40 pointer-events-none z-20" />
 
       {/* Top bar */}
-      <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-1.5 pt-1">
+      <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-1.5 pt-1 z-30">
         <span className="text-[7px] text-white/80 uppercase tracking-wide bg-black/50 px-1 py-0.5 rounded-sm">
           {isTesseract ? "TESSERACT" : "BULL CLUB"}
         </span>
@@ -104,14 +91,11 @@ export function NftCard({
           <div className="w-4 h-4 bg-black/50 rounded-sm flex items-center justify-center">
             <span className="text-[7px] text-white">↗</span>
           </div>
-          <div className="w-4 h-4 bg-black/50 rounded-sm flex items-center justify-center">
-            <span className="text-[7px] text-white">≡</span>
-          </div>
         </div>
       </div>
 
       {/* Bottom: token ID */}
-      <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-1.5 pb-1">
+      <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-1.5 pb-1 z-30">
         <span className="text-[9px] font-bold text-white drop-shadow">
           #{tokenId}
         </span>
@@ -138,25 +122,9 @@ export function NftCard({
 
 function TesseractArt() {
   return (
-    <svg
-      width="55%"
-      height="55%"
-      viewBox="0 0 60 60"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <polygon
-        points="30,4 54,18 54,42 30,56 6,42 6,18"
-        stroke="rgba(100,180,255,0.8)"
-        strokeWidth="1.5"
-        fill="rgba(41,121,255,0.1)"
-      />
-      <polygon
-        points="30,16 44,24 44,36 30,44 16,36 16,24"
-        stroke="rgba(100,180,255,0.6)"
-        strokeWidth="1"
-        fill="rgba(41,121,255,0.15)"
-      />
+    <svg width="55%" height="55%" viewBox="0 0 60 60" fill="none">
+      <polygon points="30,4 54,18 54,42 30,56 6,42 6,18" stroke="rgba(100,180,255,0.8)" strokeWidth="1.5" fill="rgba(41,121,255,0.1)" />
+      <polygon points="30,16 44,24 44,36 30,44 16,36 16,24" stroke="rgba(100,180,255,0.6)" strokeWidth="1" fill="rgba(41,121,255,0.15)" />
       <line x1="30" y1="4" x2="30" y2="16" stroke="rgba(100,180,255,0.5)" strokeWidth="1" />
       <line x1="54" y1="18" x2="44" y2="24" stroke="rgba(100,180,255,0.5)" strokeWidth="1" />
       <line x1="54" y1="42" x2="44" y2="36" stroke="rgba(100,180,255,0.5)" strokeWidth="1" />

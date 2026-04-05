@@ -19,7 +19,7 @@ export default function DashboardLayout({
 
       {/* Main monitor */}
       <MonitorFrame>
-        <div className="flex h-full" style={{ minHeight: "680px" }}>
+        <div className="flex h-full">
           <Sidebar />
           <main className="flex-1 overflow-hidden">{children}</main>
         </div>
