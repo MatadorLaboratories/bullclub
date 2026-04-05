@@ -70,9 +70,9 @@ export function Sidebar({ bullPoints }: SidebarProps) {
 
   return (
     <>
-      <aside className="w-[220px] flex-shrink-0 border-r border-white/10 flex flex-col" style={{ background: "rgba(17,17,17,0.6)" }}>
+      <aside className="w-[220px] flex-shrink-0 flex flex-col">
         {/* Avatar */}
-        <div className="p-5 border-b border-bc-border">
+        <div className="p-5">
           <div className="relative w-full aspect-square rounded-sm overflow-hidden bg-bc-card border border-bc-border2 group">
             {avatarUrl ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -103,7 +103,7 @@ export function Sidebar({ bullPoints }: SidebarProps) {
         </div>
 
         {/* Navigation */}
-        <nav className="p-4 flex flex-col gap-2 border-b border-bc-border">
+        <nav className="px-4 pb-4 flex flex-col gap-2">
           {NAV_ITEMS.map((item) => {
             const isActive = pathname === item.href || (item.href !== "/dashboard" && pathname.startsWith(item.href));
             return (
@@ -173,11 +173,11 @@ export function Sidebar({ bullPoints }: SidebarProps) {
         >
           <div
             className="relative rounded-sm border border-bc-border2 p-4 flex flex-col gap-3"
-            style={{ background: "#1a1a1a", width: "380px", maxHeight: "480px" }}
+            style={{ background: "#1a1a1a", width: "420px" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-shrink-0">
               <span className="font-unison-light-round text-white uppercase tracking-widest" style={{ fontSize: "11px" }}>
                 Select Avatar
               </span>
@@ -190,51 +190,50 @@ export function Sidebar({ bullPoints }: SidebarProps) {
               </button>
             </div>
 
-            {/* Grid */}
+            {/* Scroll container — separate from grid so aspect ratios are preserved */}
             {bulls.length === 0 ? (
               <p className="text-bc-gray3 uppercase tracking-wider text-center font-unison-light-round" style={{ fontSize: "9px" }}>
                 {connected ? "No bulls found in wallet" : "Connect your wallet to select an avatar"}
               </p>
             ) : (
-              <div
-                className="overflow-y-auto grid gap-2"
-                style={{ gridTemplateColumns: "repeat(4, 1fr)", maxHeight: "380px" }}
-              >
-                {bulls.map((bull) => {
-                  const isSelected = (avatarMint ? bull.mint === avatarMint : bull === bulls[0]);
-                  return (
-                    <button
-                      key={bull.mint}
-                      onClick={() => handleSelectAvatar(bull.mint, bull.imageUrl)}
-                      className={cn(
-                        "relative rounded-sm overflow-hidden border transition-all",
-                        isSelected ? "border-bc-pink" : "border-bc-border2 hover:border-white/40"
-                      )}
-                      style={{ aspectRatio: "1 / 1" }}
-                    >
-                      {bull.imageUrl ? (
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img src={bull.imageUrl} alt={`Bull #${bull.tokenId}`} className="w-full h-full object-cover" />
-                      ) : (
-                        <div className="w-full h-full bg-bc-card flex items-center justify-center">
-                          <span className="text-bc-gray3 font-unison-light-round" style={{ fontSize: "7px" }}>#{bull.tokenId}</span>
+              <div className="overflow-y-auto" style={{ maxHeight: "460px" }}>
+                <div className="grid gap-2" style={{ gridTemplateColumns: "repeat(4, 1fr)" }}>
+                  {bulls.map((bull) => {
+                    const isSelected = (avatarMint ? bull.mint === avatarMint : bull === bulls[0]);
+                    return (
+                      <button
+                        key={bull.mint}
+                        onClick={() => handleSelectAvatar(bull.mint, bull.imageUrl)}
+                        className={cn(
+                          "relative rounded-sm overflow-hidden border transition-all",
+                          isSelected ? "border-bc-pink" : "border-bc-border2 hover:border-white/40"
+                        )}
+                        style={{ aspectRatio: "1 / 1" }}
+                      >
+                        {bull.imageUrl ? (
+                          // eslint-disable-next-line @next/next/no-img-element
+                          <img src={bull.imageUrl} alt={`Bull #${bull.tokenId}`} className="w-full h-full object-cover" />
+                        ) : (
+                          <div className="w-full h-full bg-bc-card flex items-center justify-center">
+                            <span className="text-bc-gray3 font-unison-light-round" style={{ fontSize: "7px" }}>#{bull.tokenId}</span>
+                          </div>
+                        )}
+                        {/* Token ID label */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-1 py-0.5">
+                          <span className="font-unison-light-round text-white/80 block text-center" style={{ fontSize: "7px" }}>
+                            #{bull.tokenId}
+                          </span>
                         </div>
-                      )}
-                      {/* Token ID label */}
-                      <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-1 py-0.5">
-                        <span className="font-unison-light-round text-white/80 block text-center" style={{ fontSize: "7px" }}>
-                          #{bull.tokenId}
-                        </span>
-                      </div>
-                      {/* Selected checkmark */}
-                      {isSelected && (
-                        <div className="absolute top-1 right-1 w-4 h-4 bg-bc-pink rounded-full flex items-center justify-center">
-                          <span style={{ fontSize: "8px", color: "white", lineHeight: 1 }}>✓</span>
-                        </div>
-                      )}
-                    </button>
-                  );
-                })}
+                        {/* Selected checkmark */}
+                        {isSelected && (
+                          <div className="absolute top-1 right-1 w-4 h-4 bg-bc-pink rounded-full flex items-center justify-center">
+                            <span style={{ fontSize: "8px", color: "white", lineHeight: 1 }}>✓</span>
+                          </div>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
             )}
           </div>

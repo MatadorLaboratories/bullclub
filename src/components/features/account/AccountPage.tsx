@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useWallet } from "@solana/wallet-adapter-react";
 import { Switch } from "@/components/ui/switch";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { toast } from "sonner";
@@ -14,6 +16,9 @@ export function AccountPage() {
   const [notifyRaffles, setNotifyRaffles] = useState(false);
   const [anonymous, setAnonymous] = useState(false);
 
+  const { disconnect } = useWallet();
+  const router = useRouter();
+
   const wallets = [
     { address: "GKVOS...122103", chain: "SOL" },
     { address: "0X113...AKN12", chain: "ETH" },
@@ -21,6 +26,15 @@ export function AccountPage() {
 
   const handleSave = () => {
     toast.success("Account updated");
+  };
+
+  const handleSignOut = async () => {
+    try {
+      await disconnect();
+    } catch {
+      // wallet may already be disconnected
+    }
+    router.push("/");
   };
 
   return (
@@ -112,7 +126,7 @@ export function AccountPage() {
             Save
           </button>
           <button
-            onClick={() => toast.info("Signing out...")}
+            onClick={handleSignOut}
             className="px-6 py-2 text-[10px] tracking-widest uppercase border border-bc-border2 text-white hover:border-red-500 hover:text-red-400 transition-all"
           >
             Sign Out
