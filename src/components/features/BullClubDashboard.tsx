@@ -25,16 +25,16 @@ export function BullClubDashboard() {
         {/* Your Collection */}
         <section>
           <div className="flex items-center justify-between mb-3">
-            <span className="text-xs tracking-widest uppercase text-white">
+            <span className="text-xs tracking-widest uppercase text-white font-unison-light-round">
               Your Collection
             </span>
             <div className="flex items-center gap-3">
-              <span className="text-[10px] text-bc-gray3 tracking-wider uppercase">
+              <span className="text-[10px] text-bc-gray3 tracking-wider uppercase font-unison-light-round">
                 {isLoading ? "..." : `${bulls.length} Bulls`}
               </span>
               <Link
                 href="/collection"
-                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
               >
                 See All
               </Link>
@@ -88,14 +88,14 @@ export function BullClubDashboard() {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <RaffleIcon />
-                <span className="text-xs tracking-widest uppercase text-white">Raffles</span>
-                <span className="text-[9px] bg-bc-pink/20 text-bc-pink px-1.5 py-0.5 rounded-sm tracking-wider">
+                <span className="text-xs tracking-widest uppercase text-white font-unison-light-round">Raffles</span>
+                <span className="text-[9px] bg-bc-pink/20 text-bc-pink px-1.5 py-0.5 rounded-sm tracking-wider font-unison-light-round">
                   {activeRaffles.length} Active
                 </span>
               </div>
               <Link
                 href="/raffles"
-                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
               >
                 See All
               </Link>
@@ -112,11 +112,11 @@ export function BullClubDashboard() {
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
                 <AirdropIcon />
-                <span className="text-xs tracking-widest uppercase text-white">Airdrops</span>
+                <span className="text-xs tracking-widest uppercase text-white font-unison-light-round">Airdrops</span>
               </div>
               <Link
                 href="/airdrops"
-                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+                className="text-[10px] border border-bc-border2 text-white px-3 py-1 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
               >
                 See All
               </Link>
@@ -149,7 +149,7 @@ function RafflePreviewCard({ raffle }: { raffle: (typeof MOCK_RAFFLES)[0] }) {
         <span className="text-[8px] text-white/70 uppercase tracking-wide">
           {raffle.title}
         </span>
-        <span className="text-[8px] text-white bg-bc-pink px-1 py-0.5 rounded-sm self-start tracking-wider uppercase group-hover:bg-white group-hover:text-bc-panel transition-colors">
+        <span className="text-[8px] text-white bg-bc-pink px-1 py-0.5 rounded-sm self-start tracking-wider uppercase group-hover:bg-white group-hover:text-bc-panel transition-colors font-unison-bold">
           View
         </span>
       </div>

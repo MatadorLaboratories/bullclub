@@ -103,7 +103,7 @@ export function Sidebar({ bullPoints }: SidebarProps) {
         {/* Header */}
         <div className="flex items-center gap-2 pt-1">
           <BullPointsIcon />
-          <span className="text-bc-pink text-xs font-bold tracking-widest uppercase">
+          <span className="text-bc-pink text-xs font-unison-bold tracking-widest uppercase">
             Bull Points
           </span>
         </div>
@@ -130,7 +130,7 @@ export function Sidebar({ bullPoints }: SidebarProps) {
         {/* How to Earn */}
         <Link
           href="/bull-points"
-          className="w-full text-center py-2 text-xs tracking-widest uppercase border border-bc-pink text-bc-pink rounded-sm hover:bg-bc-pink hover:text-white transition-all mt-auto"
+          className="w-full text-center py-2 text-xs tracking-widest uppercase border border-bc-pink text-bc-pink rounded-sm hover:bg-bc-pink hover:text-white transition-all mt-auto font-unison-bold"
         >
           How to Earn
         </Link>
@@ -150,10 +150,10 @@ function StatRow({
 }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-[9px] text-bc-gray3 uppercase tracking-wider">{label}</span>
+      <span className="text-[9px] text-bc-gray3 uppercase tracking-wider font-unison-light-round">{label}</span>
       <span
         className={cn(
-          "text-sm font-bold tracking-wide",
+          "text-sm font-unison-bold-round tracking-wide",
           highlight ? "text-bc-pink" : "text-white"
         )}
       >

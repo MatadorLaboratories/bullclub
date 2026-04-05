@@ -14,10 +14,10 @@ export function RafflesListPage() {
     <ScrollArea className="h-full">
       <div className="p-5 animate-fade-in">
         <div className="flex items-center justify-between mb-5">
-          <h1 className="text-base tracking-widest uppercase">Raffles</h1>
+          <h1 className="text-base tracking-widest uppercase font-unison-light-round">Raffles</h1>
           <Link
             href="/dashboard"
-            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
           >
             Back
           </Link>
@@ -26,8 +26,8 @@ export function RafflesListPage() {
         {/* Active */}
         <div className="mb-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[10px] tracking-widest uppercase text-white">Active</span>
-            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase">
+            <span className="text-[10px] tracking-widest uppercase text-white font-unison-light-round">Active</span>
+            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase font-unison-light-round">
               {active.length} Raffles
             </span>
           </div>
@@ -41,8 +41,8 @@ export function RafflesListPage() {
         {/* Past */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[10px] tracking-widest uppercase text-white">Past</span>
-            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase">
+            <span className="text-[10px] tracking-widest uppercase text-white font-unison-light-round">Past</span>
+            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase font-unison-light-round">
               {past.length} Raffles
             </span>
           </div>
@@ -125,7 +125,7 @@ function RaffleCard({
         <span className="text-[9px] text-white truncate">{raffle.title}</span>
         <Link
           href={`/raffles/${raffle.id}`}
-          className="text-[8px] border border-bc-border2 text-white px-2 py-0.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all flex-shrink-0"
+          className="text-[8px] border border-bc-border2 text-white px-2 py-0.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all flex-shrink-0 font-unison-bold"
         >
           View
         </Link>

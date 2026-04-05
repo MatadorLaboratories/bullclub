@@ -30,10 +30,10 @@ export function BondPage() {
       <div className="p-5 animate-fade-in">
         {/* Header */}
         <div className="flex items-center justify-between mb-2">
-          <h1 className="text-base tracking-widest uppercase">Bond Tesseract</h1>
+          <h1 className="text-base tracking-widest uppercase font-unison-light-round">Bond Tesseract</h1>
           <Link
             href="/collection"
-            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
           >
             Back
           </Link>
@@ -49,7 +49,7 @@ export function BondPage() {
           <button
             onClick={() => setTab("bond")}
             className={cn(
-              "px-8 py-2 text-[10px] tracking-widest uppercase transition-all",
+              "px-8 py-2 text-[10px] tracking-widest uppercase transition-all font-unison-bold",
               tab === "bond"
                 ? "bg-bc-pink text-white"
                 : "bg-transparent text-white hover:bg-white/5"
@@ -60,7 +60,7 @@ export function BondPage() {
           <button
             onClick={() => setTab("interchange")}
             className={cn(
-              "px-8 py-2 text-[10px] tracking-widest uppercase transition-all",
+              "px-8 py-2 text-[10px] tracking-widest uppercase transition-all font-unison-bold",
               tab === "interchange"
                 ? "bg-bc-pink text-white"
                 : "bg-transparent text-white hover:bg-white/5 border-l border-bc-border2"
@@ -131,7 +131,7 @@ function BondTab({
         </div>
         <button
           onClick={onBond}
-          className="flex items-center gap-1 text-[10px] tracking-widest uppercase text-bc-gray4 hover:text-bc-pink transition-colors border border-bc-border2 px-4 py-1.5 hover:border-bc-pink"
+          className="flex items-center gap-1 text-[10px] tracking-widest uppercase text-bc-gray4 hover:text-bc-pink transition-colors border border-bc-border2 px-4 py-1.5 hover:border-bc-pink font-unison-bold"
         >
           Upgrade Bull →
         </button>
@@ -178,7 +178,7 @@ function BondTab({
             </span>
           </div>
           <div className="absolute bottom-2 left-2">
-            <span className="text-[11px] font-bold text-white">#{bull.tokenId}</span>
+            <span className="text-[11px] font-unison-bold-round text-white">#{bull.tokenId}</span>
           </div>
         </div>
         <span className="text-[9px] text-bc-gray3 text-center uppercase tracking-wide">
@@ -186,7 +186,7 @@ function BondTab({
         </span>
         <button
           onClick={onBond}
-          className="w-full py-2 text-[10px] tracking-widest uppercase border border-bc-border2 text-white hover:border-bc-pink hover:text-bc-pink transition-all"
+          className="w-full py-2 text-[10px] tracking-widest uppercase border border-bc-border2 text-white hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
         >
           Bond and Switch
         </button>
@@ -230,7 +230,7 @@ function InterchangeTab({
         </p>
         <button
           onClick={onInterchange}
-          className="px-5 py-2 text-[10px] tracking-widest uppercase border border-bc-pink text-bc-pink hover:bg-bc-pink hover:text-white transition-all"
+          className="px-5 py-2 text-[10px] tracking-widest uppercase border border-bc-pink text-bc-pink hover:bg-bc-pink hover:text-white transition-all font-unison-bold"
         >
           Switch
         </button>
@@ -248,7 +248,7 @@ function InterchangeTab({
             {is3D ? <BullSvg /> : <BullSvg3D />}
           </div>
           <div className="absolute bottom-2 left-2">
-            <span className="text-[11px] font-bold text-white">#{bull.tokenId}</span>
+            <span className="text-[11px] font-unison-bold-round text-white">#{bull.tokenId}</span>
           </div>
         </div>
         <span className="text-[9px] text-bc-gray3 text-center uppercase tracking-wide">
@@ -288,7 +288,7 @@ function NftPreviewCard({
           </span>
         </div>
         <div className="absolute bottom-2 left-2">
-          <span className="text-[11px] font-bold text-white">#{tokenId}</span>
+          <span className="text-[11px] font-unison-bold-round text-white">#{tokenId}</span>
         </div>
       </div>
       <span className="text-[9px] text-bc-gray3 text-center uppercase tracking-wide">
@@ -297,13 +297,13 @@ function NftPreviewCard({
       <div className="flex gap-1.5">
         <button
           onClick={onPrev}
-          className="flex-1 py-1 text-[9px] tracking-widest uppercase border border-bc-border2 text-bc-gray4 hover:border-bc-pink hover:text-bc-pink transition-all"
+          className="flex-1 py-1 text-[9px] tracking-widest uppercase border border-bc-border2 text-bc-gray4 hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
         >
           Prev
         </button>
         <button
           onClick={onNext}
-          className="flex-1 py-1 text-[9px] tracking-widest uppercase border border-bc-border2 text-bc-gray4 hover:border-bc-pink hover:text-bc-pink transition-all"
+          className="flex-1 py-1 text-[9px] tracking-widest uppercase border border-bc-border2 text-bc-gray4 hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
         >
           Next
         </button>

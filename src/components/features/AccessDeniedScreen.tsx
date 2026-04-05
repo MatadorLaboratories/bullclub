@@ -46,7 +46,7 @@ export function AccessDeniedScreen() {
                 href="https://magiceden.io"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-bc-pink border border-bc-pink text-white text-xs tracking-widest uppercase hover:bg-bc-pink/80 transition-all flex items-center gap-2"
+                className="px-5 py-2.5 bg-bc-pink border border-bc-pink text-white text-xs tracking-widest uppercase hover:bg-bc-pink/80 transition-all flex items-center gap-2 font-unison-bold"
               >
                 <MEIcon /> ME
               </a>
@@ -54,7 +54,7 @@ export function AccessDeniedScreen() {
                 href="https://tensor.trade"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-5 py-2.5 bg-bc-card border border-bc-border2 text-white text-xs tracking-widest uppercase hover:border-white/40 transition-all flex items-center gap-2"
+                className="px-5 py-2.5 bg-bc-card border border-bc-border2 text-white text-xs tracking-widest uppercase hover:border-white/40 transition-all flex items-center gap-2 font-unison-bold"
               >
                 <TensorIcon /> Tensor
               </a>

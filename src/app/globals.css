@@ -2,8 +2,69 @@
 @import "tw-animate-css";
 
 /* ─────────────────────────────────────────────
-   Bull Club Custom Fonts
+   Bull Club Custom Fonts — Unison Pro
 ───────────────────────────────────────────── */
+@font-face {
+  font-family: "Unison Pro Bold Round";
+  src: url("/fonts/UnisonPro-BoldRound.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unison Pro Bold Round";
+  src: url("/fonts/UnisonPro-BoldRoundItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unison Pro Bold";
+  src: url("/fonts/UnisonPro-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unison Pro Bold";
+  src: url("/fonts/UnisonPro-BoldItalic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unison Pro Light Round";
+  src: url("/fonts/UnisonPro-LightRound.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unison Pro Light Round";
+  src: url("/fonts/UnisonPro-LightRoundItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Unison Pro Light";
+  src: url("/fonts/UnisonPro-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Unison Pro Light";
+  src: url("/fonts/UnisonPro-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Keep Generica as fallback */
 @font-face {
   font-family: "Generica";
   src: url("/fonts/Generica.otf") format("opentype");
@@ -11,7 +72,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "Generica";
   src: url("/fonts/Generica-Bold.otf") format("opentype");
@@ -24,8 +84,15 @@
    Tailwind v4 Theme — Bull Club Dark
 ───────────────────────────────────────────── */
 @theme {
-  --font-generica: "Generica", "Courier New", monospace;
-  --font-mono: "Generica", "Courier New", monospace;
+  /* Unison Pro font utilities */
+  --font-unison-bold-round: "Unison Pro Bold Round", "Generica", monospace;
+  --font-unison-bold: "Unison Pro Bold", "Generica", monospace;
+  --font-unison-light-round: "Unison Pro Light Round", "Generica", monospace;
+  --font-unison-light: "Unison Pro Light", "Generica", monospace;
+
+  /* Keep mono pointing to Unison Pro Bold for compatibility */
+  --font-generica: "Unison Pro Bold", "Generica", "Courier New", monospace;
+  --font-mono: "Unison Pro Bold", "Generica", "Courier New", monospace;
 
   /* Brand colours */
   --color-bc-bg: #080808;
@@ -102,7 +169,7 @@
   body {
     /* No background here — body bg would paint over the fixed video */
     color: white;
-    font-family: "Generica", "Courier New", monospace;
+    font-family: "Unison Pro Bold", "Generica", "Courier New", monospace;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -191,7 +258,7 @@
    Solana Wallet Adapter Overrides
 ───────────────────────────────────────────── */
 .wallet-adapter-button {
-  font-family: "Generica", monospace !important;
+  font-family: "Unison Pro Bold", "Generica", monospace !important;
   letter-spacing: 0.1em !important;
   background-color: transparent !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -213,11 +280,11 @@
 .wallet-adapter-modal-wrapper {
   background: var(--bc-panel) !important;
   border: 1px solid var(--bc-border2) !important;
-  font-family: "Generica", monospace !important;
+  font-family: "Unison Pro Bold", "Generica", monospace !important;
 }
 .wallet-adapter-modal-title {
   color: white !important;
-  font-family: "Generica", monospace !important;
+  font-family: "Unison Pro Bold", "Generica", monospace !important;
   text-transform: uppercase !important;
   letter-spacing: 0.1em !important;
 }

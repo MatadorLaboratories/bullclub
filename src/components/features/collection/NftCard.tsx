@@ -96,7 +96,7 @@ export function NftCard({
 
       {/* Bottom: token ID */}
       <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between px-1.5 pb-1 z-30">
-        <span className="text-[9px] font-bold text-white drop-shadow">
+        <span className="text-[9px] font-unison-bold-round text-white drop-shadow">
           #{tokenId}
         </span>
         {quantity !== undefined && (

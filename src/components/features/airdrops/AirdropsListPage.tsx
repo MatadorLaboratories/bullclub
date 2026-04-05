@@ -11,10 +11,10 @@ export function AirdropsListPage() {
     <ScrollArea className="h-full">
       <div className="p-5 animate-fade-in">
         <div className="flex items-center justify-between mb-5">
-          <h1 className="text-base tracking-widest uppercase">Airdrops</h1>
+          <h1 className="text-base tracking-widest uppercase font-unison-light-round">Airdrops</h1>
           <Link
             href="/dashboard"
-            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
           >
             Back
           </Link>
@@ -23,8 +23,8 @@ export function AirdropsListPage() {
         {/* Upcoming */}
         <div className="mb-5">
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[10px] tracking-widest uppercase text-white">Upcoming</span>
-            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase">
+            <span className="text-[10px] tracking-widest uppercase text-white font-unison-light-round">Upcoming</span>
+            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase font-unison-light-round">
               {upcoming.length} Airdrops
             </span>
           </div>
@@ -38,8 +38,8 @@ export function AirdropsListPage() {
         {/* Past */}
         <div>
           <div className="flex items-center justify-between mb-3">
-            <span className="text-[10px] tracking-widest uppercase text-white">Past</span>
-            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase">
+            <span className="text-[10px] tracking-widest uppercase text-white font-unison-light-round">Past</span>
+            <span className="text-[9px] text-bc-gray3 tracking-wider uppercase font-unison-light-round">
               {past.length > 0 ? `${past.length} Airdrops` : "None"}
             </span>
           </div>
@@ -96,7 +96,7 @@ function AirdropCard({ airdrop }: { airdrop: (typeof MOCK_AIRDROPS)[0] }) {
         <span className="text-[9px] text-white truncate">{airdrop.title}</span>
         <Link
           href={`/airdrops/${airdrop.id}`}
-          className="text-[8px] border border-bc-border2 text-white px-2 py-0.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all flex-shrink-0"
+          className="text-[8px] border border-bc-border2 text-white px-2 py-0.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all flex-shrink-0 font-unison-bold"
         >
           View
         </Link>

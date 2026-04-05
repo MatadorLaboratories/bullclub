@@ -18,7 +18,7 @@ export function LandingScreen() {
           <BullClubLogo className="w-56 drop-shadow-[0_0_40px_rgba(255,255,255,0.3)]" />
           <button
             onClick={() => router.push("/connect")}
-            className="px-16 py-3.5 border border-white/70 bg-black/40 text-white text-sm tracking-[0.25em] uppercase hover:bg-white/10 hover:border-white transition-all active:scale-95 font-mono backdrop-blur-sm"
+            className="px-16 py-3.5 border border-white/70 bg-black/40 text-white text-sm tracking-[0.25em] uppercase hover:bg-white/10 hover:border-white transition-all active:scale-95 font-unison-bold backdrop-blur-sm"
           >
             Enter Club
           </button>

@@ -56,7 +56,7 @@ export function ConnectWalletScreen() {
           <div className="flex flex-col items-center gap-4 w-full">
             <button
               onClick={() => setVisible(true)}
-              className="w-full py-3.5 border border-white/60 bg-transparent text-white text-sm tracking-[0.2em] uppercase hover:bg-white/8 hover:border-white transition-all active:scale-95 font-mono"
+              className="w-full py-3.5 border border-white/60 bg-transparent text-white text-sm tracking-[0.2em] uppercase hover:bg-white/8 hover:border-white transition-all active:scale-95 font-unison-bold"
             >
               Connect Wallet
             </button>

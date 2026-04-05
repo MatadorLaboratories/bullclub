@@ -21,7 +21,7 @@ export function BullPointsPage() {
           {/* Title */}
           <div className="flex items-center gap-3 mb-4">
             <BullIcon />
-            <h1 className="text-base tracking-widest uppercase">Bull Points</h1>
+            <h1 className="text-base tracking-widest uppercase font-unison-bold">Bull Points</h1>
           </div>
 
           {/* Description */}
@@ -37,7 +37,7 @@ export function BullPointsPage() {
           </div>
 
           {/* Ways to earn */}
-          <h2 className="text-[10px] tracking-widest uppercase text-white mb-3">
+          <h2 className="text-[10px] tracking-widest uppercase text-white mb-3 font-unison-light-round">
             Ways to Earn Points
           </h2>
           <div className="flex flex-col gap-1">
@@ -63,7 +63,7 @@ export function BullPointsPage() {
       <div className="w-[180px] flex-shrink-0 border-l border-bc-border p-4 flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <BullIcon />
-          <span className="text-[10px] text-bc-pink uppercase tracking-wider font-bold">
+          <span className="text-[10px] text-bc-pink uppercase tracking-wider font-unison-bold">
             Bull Points
           </span>
         </div>
@@ -89,7 +89,7 @@ export function BullPointsPage() {
 
         <Link
           href="/leaderboard"
-          className="w-full text-center py-2 text-[10px] tracking-widest uppercase border border-bc-border2 text-white hover:border-bc-pink hover:text-bc-pink transition-all mt-auto"
+          className="w-full text-center py-2 text-[10px] tracking-widest uppercase border border-bc-border2 text-white hover:border-bc-pink hover:text-bc-pink transition-all mt-auto font-unison-bold"
         >
           Leaderboard
         </Link>
@@ -109,8 +109,8 @@ function StatItem({
 }) {
   return (
     <div className="flex flex-col gap-0.5">
-      <span className="text-[8px] text-bc-gray3 uppercase tracking-wider">{label}</span>
-      <span className={`text-sm font-bold tracking-wide ${valueColor}`}>{value}</span>
+      <span className="text-[8px] text-bc-gray3 uppercase tracking-wider font-unison-light-round">{label}</span>
+      <span className={`text-sm font-unison-bold-round tracking-wide ${valueColor}`}>{value}</span>
     </div>
   );
 }

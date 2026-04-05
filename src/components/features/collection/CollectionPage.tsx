@@ -18,7 +18,7 @@ export function CollectionPage() {
       <div className="p-5 animate-fade-in">
         {/* Header */}
         <div className="flex items-center justify-between mb-5">
-          <h1 className="text-base tracking-widest uppercase text-white">
+          <h1 className="text-base tracking-widest uppercase text-white font-unison-light-round">
             Your Collection
             {nfts && (
               <span className="ml-2 text-[10px] text-bc-gray3">
@@ -28,7 +28,7 @@ export function CollectionPage() {
           </h1>
           <Link
             href="/dashboard"
-            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all"
+            className="text-[10px] border border-bc-border2 text-white px-3 py-1.5 tracking-widest uppercase hover:border-bc-pink hover:text-bc-pink transition-all font-unison-bold"
           >
             Back
           </Link>
