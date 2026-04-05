@@ -30,7 +30,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-bc-bg text-white antialiased min-h-screen">
-        {/* Global background video — sits behind every page */}
+        {/* Global background video — matches landing page style on all routes */}
         <video
           autoPlay
           loop
@@ -38,10 +38,16 @@ export default function RootLayout({
           playsInline
           aria-hidden="true"
           className="fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
-          style={{ opacity: 0.3 }}
+          style={{ opacity: 0.55 }}
         >
           <source src={bgVideoUrl} type="video/mp4" />
         </video>
+        {/* Vignette overlay — same as landing page */}
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 pointer-events-none -z-10"
+          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 40%, rgba(0,0,0,0.55) 100%)" }}
+        />
 
         <WalletProvider>
           <QueryProvider>

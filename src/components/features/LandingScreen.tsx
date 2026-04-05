@@ -8,30 +8,9 @@ export function LandingScreen() {
   const router = useRouter();
 
   return (
-    <div className="fixed inset-0 overflow-hidden bg-bc-bg">
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ opacity: 0.55 }}
-      >
-        <source
-          src={
-            process.env.NEXT_PUBLIC_BG_VIDEO_URL ??
-            "https://res.cloudinary.com/duaecwfpf/video/upload/q_auto/v1775388356/bg_kmh01d.mp4"
-          }
-          type="video/mp4"
-        />
-      </video>
-
+    <div className="fixed inset-0 overflow-hidden">
       {/* Scan lines */}
       <div className="absolute inset-0 scanlines z-10 pointer-events-none opacity-50" />
-
-      {/* Dark vignette overlay */}
-      <div className="absolute inset-0 z-20 bg-gradient-to-b from-black/40 via-transparent to-black/70" />
 
       {/* Center content */}
       <div className="absolute inset-0 z-30 flex flex-col items-center justify-center gap-8">
