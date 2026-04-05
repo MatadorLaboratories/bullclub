@@ -21,7 +21,8 @@ export default function DashboardLayout({
       <MonitorFrame>
         <div className="flex h-full">
           <Sidebar />
-          <main className="flex-1 overflow-hidden">{children}</main>
+          {/* Main content panel — #111 matching Figma */}
+          <main className="flex-1 overflow-hidden" style={{ background: "#111" }}>{children}</main>
         </div>
       </MonitorFrame>
 

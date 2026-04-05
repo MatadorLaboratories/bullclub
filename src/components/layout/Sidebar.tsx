@@ -44,7 +44,7 @@ export function Sidebar({ bullPoints }: SidebarProps) {
   };
 
   return (
-    <aside className="w-[230px] flex-shrink-0 border-r border-bc-border flex flex-col bg-bc-panel">
+    <aside className="w-[220px] flex-shrink-0 border-r border-white/10 flex flex-col" style={{ background: "rgba(17,17,17,0.6)" }}>
       {/* Avatar */}
       <div className="p-4 border-b border-bc-border">
         <div className="relative w-full aspect-square rounded-sm overflow-hidden bg-bc-card border border-bc-border2 group">
@@ -149,13 +149,16 @@ function StatRow({
   highlight?: boolean;
 }) {
   return (
-    <div className="flex flex-col gap-0.5">
-      <span className="text-[9px] text-bc-gray3 uppercase tracking-wider font-unison-light-round">{label}</span>
+    <div className="rounded-sm px-2.5 flex flex-col justify-center" style={{ background: "#242424", height: "43px" }}>
+      <span className="font-unison-light-round text-bc-gray3 uppercase tracking-wider block" style={{ fontSize: "7px" }}>
+        {label}
+      </span>
       <span
         className={cn(
-          "text-sm font-unison-bold-round tracking-wide",
+          "font-unison-bold-round tracking-wide mt-0.5",
           highlight ? "text-bc-pink" : "text-white"
         )}
+        style={{ fontSize: "14px" }}
       >
         {value}
       </span>

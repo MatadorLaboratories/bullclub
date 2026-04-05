@@ -7,14 +7,19 @@ interface MonitorFrameProps {
 
 export function MonitorFrame({ children, className }: MonitorFrameProps) {
   return (
-    <div className="relative flex flex-col items-center w-full max-w-[920px] mx-auto">
-      {/* Monitor screen — fixed height so inner ScrollAreas work correctly */}
+    <div className="relative flex flex-col items-center w-full max-w-[1076px] mx-auto">
+      {/* Monitor screen — glass panel with backdrop blur matching Figma design */}
       <div
         className={cn(
-          "relative w-full rounded-sm border border-bc-border bg-bc-panel overflow-hidden monitor-border animate-fade-in",
+          "relative w-full rounded-[10px] border border-white/10 overflow-hidden monitor-border animate-fade-in",
           className
         )}
-        style={{ height: "680px" }}
+        style={{
+          height: "628px",
+          backdropFilter: "blur(25px)",
+          WebkitBackdropFilter: "blur(25px)",
+          background: "rgba(0, 0, 0, 0.8)",
+        }}
       >
         {children}
       </div>
