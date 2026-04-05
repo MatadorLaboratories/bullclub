@@ -20,12 +20,28 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const bgVideoUrl =
+    process.env.NEXT_PUBLIC_BG_VIDEO_URL ?? "/videos/bg.mp4";
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="bg-bc-bg text-white antialiased min-h-screen">
+        {/* Global background video — sits behind every page */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+          className="fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
+          style={{ opacity: 0.3 }}
+        >
+          <source src={bgVideoUrl} type="video/mp4" />
+        </video>
+
         <WalletProvider>
           <QueryProvider>
             {children}
