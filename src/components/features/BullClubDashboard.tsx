@@ -156,7 +156,7 @@ function RafflePreviewCard({ raffle }: { raffle: (typeof MOCK_RAFFLES)[0] }) {
     <Link
       href={`/raffles/${raffle.id}`}
       className="relative rounded-sm overflow-hidden border border-bc-border hover:border-bc-pink transition-all group"
-      style={{ height: 80 }}
+      style={{ aspectRatio: "1 / 1" }}
     >
       <div
         className="absolute inset-0"
@@ -187,7 +187,7 @@ function AirdropPreviewCard({ airdrop }: { airdrop: (typeof MOCK_AIRDROPS)[0] })
     <Link
       href={`/airdrops/${airdrop.id}`}
       className="relative rounded-sm overflow-hidden border border-bc-border hover:border-bc-pink transition-all"
-      style={{ height: 80 }}
+      style={{ aspectRatio: "1 / 1" }}
     >
       <div
         className="absolute inset-0"
