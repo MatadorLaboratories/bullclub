@@ -33,6 +33,12 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# Large video assets — host on CDN in production (Supabase storage / Cloudinary)
+/public/videos/
+
+# Claude session data
+.claude/
+
 # vercel
 .vercel
 
