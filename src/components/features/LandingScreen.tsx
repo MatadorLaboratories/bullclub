@@ -21,7 +21,7 @@ export function LandingScreen() {
         <source
           src={
             process.env.NEXT_PUBLIC_BG_VIDEO_URL ??
-            "https://res.cloudinary.com/duaecwfpf/video/upload/q_auto/f_auto/v1775388356/bg_kmh01d.mp4"
+            "https://res.cloudinary.com/duaecwfpf/video/upload/q_auto/v1775388356/bg_kmh01d.mp4"
           }
           type="video/mp4"
         />
