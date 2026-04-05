@@ -9,7 +9,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-bc-bg scanlines relative flex flex-col items-center justify-center py-24 px-4">
+    <div className="min-h-screen scanlines relative flex flex-col items-center justify-center py-24 px-4">
       {/* Scan lines overlay */}
       <div className="fixed inset-0 pointer-events-none z-50 scanlines opacity-60" />
 

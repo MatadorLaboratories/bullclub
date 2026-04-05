@@ -9,7 +9,7 @@ const BG_CARDS = [0, 4, 8, 2, 6, 1, 5, 9, 3, 7, 11, 12];
 
 export function AccessDeniedScreen() {
   return (
-    <div className="fixed inset-0 bg-bc-bg overflow-hidden">
+    <div className="fixed inset-0 overflow-hidden">
       <div className="absolute inset-0 scanlines z-10 pointer-events-none opacity-60" />
 
       {/* Blurred bg */}

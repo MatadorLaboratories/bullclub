@@ -27,7 +27,7 @@ export function ConnectWalletScreen() {
   }, [connected, publicKey, router]);
 
   return (
-    <div className="fixed inset-0 bg-bc-bg overflow-hidden">
+    <div className="fixed inset-0 overflow-hidden">
       {/* Scan lines */}
       <div className="absolute inset-0 scanlines z-10 pointer-events-none opacity-60" />
 
