@@ -46,13 +46,23 @@ export function AirdropDetailPage({ airdropId }: { airdropId: string }) {
             </div>
             <div
               className="w-[260px] h-[280px] rounded-sm border border-bc-border overflow-hidden relative"
-              style={{
-                background: `linear-gradient(145deg, ${palette.from}, ${palette.to})`,
-              }}
+              style={airdrop.videoUrl ? { background: "#000" } : { background: `linear-gradient(145deg, ${palette.from}, ${palette.to})` }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <TesseractSvg />
-              </div>
+              {airdrop.videoUrl ? (
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                >
+                  <source src={airdrop.videoUrl} type="video/mp4" />
+                </video>
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <TesseractSvg />
+                </div>
+              )}
               <div className="absolute inset-0 bg-gradient-to-b from-white/8 via-transparent to-black/20 pointer-events-none" />
             </div>
           </div>

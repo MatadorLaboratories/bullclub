@@ -181,7 +181,7 @@ function AirdropPreviewCard({ airdrop }: { airdrop: (typeof MOCK_AIRDROPS)[0] })
       ? "text-bc-green"
       : airdrop.eligibility === "claimed"
       ? "text-bc-gray3"
-      : "text-bc-orange";
+      : "text-bc-gray3";
 
   return (
     <Link
@@ -189,10 +189,22 @@ function AirdropPreviewCard({ airdrop }: { airdrop: (typeof MOCK_AIRDROPS)[0] })
       className="relative rounded-sm overflow-hidden border border-bc-border hover:border-bc-pink transition-all"
       style={{ aspectRatio: "1 / 1" }}
     >
-      <div
-        className="absolute inset-0"
-        style={{ background: `linear-gradient(145deg, ${palette.from}, ${palette.to})` }}
-      />
+      {airdrop.videoUrl ? (
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={airdrop.videoUrl} type="video/mp4" />
+        </video>
+      ) : (
+        <div
+          className="absolute inset-0"
+          style={{ background: `linear-gradient(145deg, ${palette.from}, ${palette.to})` }}
+        />
+      )}
       <div className="absolute inset-0 flex flex-col justify-between p-1.5">
         <span className={`uppercase tracking-wide font-unison-bold ${eligColor}`} style={{ fontSize: "7px" }}>
           {airdrop.eligibility}

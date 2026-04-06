@@ -64,29 +64,39 @@ function AirdropCard({ airdrop }: { airdrop: (typeof MOCK_AIRDROPS)[0] }) {
       ? "bg-bc-green/20 text-bc-green border-bc-green/40"
       : airdrop.eligibility === "claimed"
       ? "bg-bc-gray/20 text-bc-gray3 border-bc-gray/40"
-      : "bg-orange-500/20 text-orange-400 border-orange-500/40";
+      : "bg-black/40 text-bc-gray3 border-white/10";
 
   return (
     <div className="flex flex-col border border-bc-border rounded-sm overflow-hidden hover:border-bc-border2 transition-all">
-      {/* Image */}
-      <div
-        className="relative h-[120px]"
-        style={{ background: `linear-gradient(145deg, ${palette.from}, ${palette.to})` }}
-      >
-        <div className="absolute inset-0 flex items-center justify-center">
-          <TesseractSvg />
-        </div>
+      {/* Image / Video */}
+      <div className="relative h-[120px] bg-black">
+        {airdrop.videoUrl ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src={airdrop.videoUrl} type="video/mp4" />
+          </video>
+        ) : (
+          <div
+            className="absolute inset-0"
+            style={{ background: `linear-gradient(145deg, ${palette.from}, ${palette.to})` }}
+          />
+        )}
         {/* Eligibility */}
         <span
           className={cn(
-            "absolute top-1.5 left-1.5 text-[8px] uppercase tracking-widest px-1.5 py-0.5 border font-bold",
+            "absolute top-1.5 left-1.5 text-[8px] uppercase tracking-widest px-1.5 py-0.5 border font-bold backdrop-blur-sm",
             eligColor
           )}
         >
           {airdrop.eligibility ?? "ineligible"}
         </span>
         {/* Coming soon */}
-        <span className="absolute top-1.5 right-1.5 text-[7px] text-white/60 bg-black/50 px-1.5 py-0.5 uppercase tracking-wider">
+        <span className="absolute top-1.5 right-1.5 text-[7px] text-white/60 bg-black/50 px-1.5 py-0.5 uppercase tracking-wider backdrop-blur-sm">
           {airdrop.status === "upcoming" ? "Coming Soon" : "Active"}
         </span>
       </div>

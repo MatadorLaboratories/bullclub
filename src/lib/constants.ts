@@ -51,6 +51,12 @@ export const NFT_PALETTES = [
   { from: "#006064", to: "#00897b", label: "BULL CLUB" }, // teal2
 ] as const;
 
+const SUPABASE_3D_URL = "https://ssbryioucbfxcvjlrxcf.supabase.co/storage/v1/object/public/Collection%203D";
+
+export function get3DAvatarUrl(tokenId: string | number) {
+  return `${SUPABASE_3D_URL}/${tokenId}.jpg`;
+}
+
 export const MOCK_CHAT_MESSAGES = [
   {
     id: "1",
@@ -58,6 +64,7 @@ export const MOCK_CHAT_MESSAGES = [
     content: "Anyone got a tesseract they want to OTC trade?",
     createdAt: new Date(Date.now() - 1000 * 60 * 5),
     bullsOwned: 3,
+    avatarTokenId: "1021",
   },
   {
     id: "2",
@@ -65,6 +72,7 @@ export const MOCK_CHAT_MESSAGES = [
     content: "Bought another bull!!!",
     createdAt: new Date(Date.now() - 1000 * 60 * 4),
     bullsOwned: 7,
+    avatarTokenId: "6733",
   },
   {
     id: "3",
@@ -73,6 +81,7 @@ export const MOCK_CHAT_MESSAGES = [
     createdAt: new Date(Date.now() - 1000 * 60 * 3),
     bullsOwned: 12,
     isCurrentUser: true,
+    avatarTokenId: "4828",
   },
   {
     id: "4",
@@ -80,6 +89,7 @@ export const MOCK_CHAT_MESSAGES = [
     content: "gm bulls!",
     createdAt: new Date(Date.now() - 1000 * 60 * 2),
     bullsOwned: 4,
+    avatarTokenId: "3955",
   },
   {
     id: "5",
@@ -87,6 +97,7 @@ export const MOCK_CHAT_MESSAGES = [
     content: "wow $btc is at $100k holy shit",
     createdAt: new Date(Date.now() - 1000 * 60),
     bullsOwned: 1,
+    avatarTokenId: "471",
   },
   {
     id: "6",
@@ -94,6 +105,7 @@ export const MOCK_CHAT_MESSAGES = [
     content: "gm bulls!",
     createdAt: new Date(),
     bullsOwned: 2,
+    avatarTokenId: "2229",
   },
 ];
 
@@ -226,6 +238,7 @@ export const MOCK_AIRDROPS: Array<{
   minimumBulls: number;
   claimsAt: null | string;
   paletteIdx: number;
+  videoUrl?: string;
 }> = [
   {
     id: "a1",
@@ -237,6 +250,7 @@ export const MOCK_AIRDROPS: Array<{
     minimumBulls: 1,
     claimsAt: null,
     paletteIdx: 10,
+    videoUrl: "/videos/Toxix_Tessy_WiderShot_Floating.mp4",
   },
   {
     id: "a2",
@@ -248,6 +262,7 @@ export const MOCK_AIRDROPS: Array<{
     minimumBulls: 3,
     claimsAt: null,
     paletteIdx: 4,
+    videoUrl: "/videos/Toxic_tessy-Tier2 V2.mp4",
   },
   {
     id: "a3",
@@ -259,6 +274,7 @@ export const MOCK_AIRDROPS: Array<{
     minimumBulls: 5,
     claimsAt: null,
     paletteIdx: 3,
+    videoUrl: "/videos/toxic_tessy_tier3.mp4",
   },
 ];
 

@@ -30,23 +30,31 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body className="text-white antialiased min-h-screen">
-        {/* Global background video — matches landing page style on all routes */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          aria-hidden="true"
-          className="fixed inset-0 w-full h-full object-cover -z-10 pointer-events-none"
-          style={{ opacity: 0.55 }}
+        {/* Dark base layer — sits below video */}
+        <div className="fixed inset-0 pointer-events-none" style={{ zIndex: -20, background: "#111111" }} />
+
+        {/* Global background video — fixed inset padding on all sides at every viewport size */}
+        <div
+          className="fixed pointer-events-none overflow-hidden"
+          style={{ zIndex: -10, inset: "30px", borderRadius: "5px", border: "0.5px solid rgba(255,255,255,0.07)" }}
         >
-          <source src={bgVideoUrl} type="video/mp4" />
-        </video>
-        {/* Vignette overlay — same as landing page */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            aria-hidden="true"
+            className="w-full h-full object-cover pointer-events-none"
+            style={{ opacity: 0.55 }}
+          >
+            <source src={bgVideoUrl} type="video/mp4" />
+          </video>
+        </div>
+        {/* Vignette overlay */}
         <div
           aria-hidden="true"
-          className="fixed inset-0 pointer-events-none -z-10"
-          style={{ background: "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 40%, rgba(0,0,0,0.55) 100%)" }}
+          className="fixed inset-0 pointer-events-none"
+          style={{ zIndex: -9, background: "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, transparent 30%, rgba(0,0,0,0.6) 100%)" }}
         />
 
         <WalletProvider>

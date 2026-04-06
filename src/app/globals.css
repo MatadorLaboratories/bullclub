@@ -215,14 +215,7 @@
     position: relative;
   }
   .monitor-border::after {
-    content: "";
-    position: absolute;
-    right: -1px;
-    top: 0;
-    width: 2px;
-    height: 100%;
-    background: linear-gradient(to bottom, #9b4dca, #e8185a 30%, #00e676 70%, #26c6da);
-    opacity: 0.5;
+    content: none;
   }
 
   .nft-card-hover {
